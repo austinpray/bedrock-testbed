@@ -1,0 +1,15 @@
+{
+    "name": "austinpray/wp-gh-docs",
+    "description": "get yer docs from gh",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Austin Pray",
+            "email": "austin@austinpray.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.5"
+    }
+}
