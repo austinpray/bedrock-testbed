@@ -1,0 +1,31 @@
+version: '3'
+services:
+  db:
+    image: mariadb
+    environment:
+      MYSQL_DATABASE: database_name
+      MYSQL_PASS: database_password
+      MYSQL_ROOT_PASSWORD: database_password
+      MYSQL_USER: database_user
+    volumes:
+      - testbed-db:/var/lib/mysql
+  php:
+    build: .
+    volumes:
+      - ./site:/code
+    depends_on:
+      - db
+    links:
+      - db
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./site:/code
+      - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
+    links:
+      - php
+
+volumes:
+  testbed-db:
