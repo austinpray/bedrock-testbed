@@ -4,13 +4,27 @@ services:
     image: mariadb
     environment:
       MYSQL_DATABASE: database_name
-      MYSQL_PASS: database_password
       MYSQL_ROOT_PASSWORD: database_password
-      MYSQL_USER: database_user
     volumes:
       - testbed-db:/var/lib/mysql
   php:
     build: .
+    environment:
+      AUTH_KEY: generateme
+      AUTH_SALT: generateme
+      DB_HOST: db
+      DB_NAME: database_name
+      DB_PASSWORD: database_password
+      DB_USER: root
+      LOGGED_IN_KEY: generateme
+      LOGGED_IN_SALT: generateme
+      NONCE_KEY: generateme
+      NONCE_SALT: generateme
+      SECURE_AUTH_KEY: generateme
+      SECURE_AUTH_SALT: generateme
+      WP_ENV: development
+      WP_HOME: http://bedrock.test
+      WP_SITEURL: http://bedrock.test/wp
     volumes:
       - ./site:/code
     depends_on:

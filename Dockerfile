@@ -36,12 +36,6 @@ RUN set -ex; \
 
 RUN apt-get update && apt-get install -y less git
 
-# install composer
-RUN cd /tmp \
-    && curl https://getcomposer.org/installer -O \
-    && php installer \
-    && mv composer.phar /usr/local/bin/composer
-
 RUN cd /tmp \
     && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x wp-cli.phar \
