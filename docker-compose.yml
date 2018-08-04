@@ -23,7 +23,7 @@ services:
       - "80:80"
     volumes:
       - ./site:/code
-      - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
+      - ./nginx/site.nginx.conf:/etc/nginx/conf.d/site.nginx.conf
     links:
       - php
 
