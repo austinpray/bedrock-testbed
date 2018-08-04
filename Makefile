@@ -1,4 +1,4 @@
-.PHONY: clean install update init
+.PHONY: clean install update init phpcs phpcbf
 
 DCR=docker-compose run --rm --no-deps php
 COMPOSER=docker run --rm --interactive --tty --volume $(shell pwd)/site:/app composer
@@ -19,3 +19,9 @@ update:
 	${COMPOSER} composer update
 
 init: clean ${VENDOR_TARGET}
+
+phpcs:
+	${DCR} vendor/bin/phpcs
+
+phpcbf:
+	${DCR} vendor/bin/phpcbf
