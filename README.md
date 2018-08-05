@@ -8,7 +8,13 @@ Inside the project repo either:
 git clone git@github.com:roots/bedrock.git site
 ```
 
-Or
+Or for a specific branch:
+
+```bash
+git clone --single-branch -b BRANCH_TO_TEST git@github.com:roots/bedrock.git site
+```
+
+Or using `composer create-project`
 
 ```bash
 docker run --rm -it -v $PWD:/app composer create-project roots/bedrock site
