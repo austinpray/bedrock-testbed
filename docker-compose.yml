@@ -27,6 +27,7 @@ services:
       WP_SITEURL: http://bedrock.test/wp
     volumes:
       - ./site:/code
+      - ./config/php.ini:/usr/local/etc/php/conf.d/bedrock.ini
     depends_on:
       - db
     links:
@@ -37,7 +38,7 @@ services:
       - "80:80"
     volumes:
       - ./site:/code
-      - ./nginx/site.nginx.conf:/etc/nginx/conf.d/site.nginx.conf
+      - ./config/site.nginx.conf:/etc/nginx/conf.d/site.nginx.conf
     links:
       - php
 
