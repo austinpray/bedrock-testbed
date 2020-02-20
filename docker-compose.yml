@@ -5,6 +5,7 @@ services:
     environment:
       MYSQL_DATABASE: database_name
       MYSQL_ROOT_PASSWORD: database_password
+      MYSQL_INITDB_SKIP_TZINFO: 1
     volumes:
       - testbed-db:/var/lib/mysql
   php:
